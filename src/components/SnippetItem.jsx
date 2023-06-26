@@ -13,10 +13,20 @@ function SnippetItem(props) {
 
   return (
     <div
-      className={`${clases} hover:bg-zinc-400 hover:cursor-pointer p-2`}
+      className={`${clases} hover:bg-zinc-400 hover:cursor-pointer p-2 `}
       onClick={handleClick}
     >
-      {name.split(".")[0]}
+      <span className="flex flex-nowrap">
+        <span className="flex-auto ">{name.split(".")[0]}</span>
+        {name === selectedSnippet ? (
+          <span className="flex-auto flex">
+            <button className="flex-auto">delete</button>
+            <button className="flex-auto">cancel</button>
+          </span>
+        ) : (
+          false
+        )}
+      </span>
     </div>
   );
 }

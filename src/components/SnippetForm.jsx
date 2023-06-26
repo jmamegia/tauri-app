@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { writeTextFile } from "@tauri-apps/api/fs";
-import { documentDir } from "@tauri-apps/api/path";
 import { useSnippetStore } from "../store/snippetStore";
+import { createSnippet } from "../tools/fileSystem";
 
 function SnippetForm() {
   const [snippetName, setSnippetName] = useState("");
@@ -10,8 +9,7 @@ function SnippetForm() {
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        const documentPath = await documentDir();
-        await writeTextFile(`${documentPath}SnipetFiles/${snippetName}.js`, "");
+        await createSnippet(`${snippetName}`);
         addSnippet(`${snippetName}.js`);
         setSelectedSnippet(`${snippetName}.js`);
         setSnippetName("");
