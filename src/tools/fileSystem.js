@@ -18,7 +18,7 @@ const createSnippet = async (snippetName, text = "") => {
   snippetName = snippetName.split(".")[0];
   await writeTextFile(`${basePath}${snippetName}.js`, text);
 };
-const deleteSnippet = async () => {
+const deleteSnippet = async (snippetName) => {
   await removeFile(`${basePath}${snippetName}`);
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSnippetStore } from "../store/snippetStore";
 import { createSnippet } from "../tools/fileSystem";
+import { toast } from "react-hot-toast";
 
 function SnippetForm() {
   const [snippetName, setSnippetName] = useState("");
@@ -13,6 +14,13 @@ function SnippetForm() {
         addSnippet(`${snippetName}.js`);
         setSelectedSnippet(`${snippetName}.js`);
         setSnippetName("");
+        toast.success(`${snippetName} snippet created`, {
+          duration: 2000,
+          position: "bottom-right",
+          style: {
+            background: "#fff",
+          },
+        });
       }}
     >
       <input

@@ -10,6 +10,10 @@ const useSnippetStore = create((set) => ({
     })),
 
   setSnippetList: async (snippets) => set({ snippets }),
+  removeSnippet: (snippet) =>
+    set((state) => ({
+      snippets: state.snippets.filter((s) => s !== snippet),
+    })),
 }));
 
 export { useSnippetStore };

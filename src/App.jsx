@@ -1,5 +1,6 @@
 import "./App.css";
 import "./components/SnipetList";
+import { Toaster } from "react-hot-toast";
 import SnipetList from "./components/SnipetList";
 import SnippetEditor from "./components/SnippetEditor";
 import SnippetForm from "./components/SnippetForm";
@@ -16,6 +17,7 @@ function App() {
       <div className="col-span-9 bg-neutral-900">
         <SnippetEditor />
       </div>
+      <Toaster />
     </div>
   );
 }
